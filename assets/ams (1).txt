@@ -1,0 +1,636 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 03, 2020 at 06:16 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `ams`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `signup_date` date NOT NULL,
+  `profile_pic` varchar(255) NOT NULL,
+  `ship` varchar(50) NOT NULL,
+  `room` varchar(50) NOT NULL,
+  `role` varchar(50) NOT NULL,
+  `user_closed` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `signup_date`, `profile_pic`, `ship`, `room`, `role`, `user_closed`) VALUES
+(3, 'Jean-Luc', 'Picard', 'jean-luc_picard', 'j_picard@sf.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2020-01-29', 'assets/images/profile_pics/jp.jpg', 'USS Enterprise-D', 'Living1(4)', 'Commanding Officer', 'no');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `crew`
+--
+
+CREATE TABLE `crew` (
+  `id` int(50) NOT NULL,
+  `f_name` varchar(50) NOT NULL,
+  `l_name` varchar(50) NOT NULL,
+  `role` varchar(50) NOT NULL,
+  `ship` varchar(50) NOT NULL,
+  `room` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `crew`
+--
+
+INSERT INTO `crew` (`id`, `f_name`, `l_name`, `role`, `ship`, `room`, `username`, `email`) VALUES
+(1, 'Kathryn', 'Janeway', 'Commanding Officer', 'USS Voyager', '1', 'k_janeway', 'k_janeway@gmail.com'),
+(2, 'Chakotay', '', 'First Officer', 'USS Voyager', '2', 'chakotay', ' chakotay@gmail.com'),
+(5, 'B\'Elanna', 'Torres', 'Chief Engineer', 'USS Voyager', '3', 'b_torres', 'b_torres@sf.com'),
+(6, 'Tom ', 'Paris', 'Conn Officer', 'USS Voyager', '4', 't_paris', 't_paris@sf.com'),
+(9, 'Kes', '', 'Nurse', 'USS Voyager', '5', 'kes', 'kes@sf.com'),
+(11, 'Neelix', '', 'Chef', 'USS Voyager', '6', 'neelix', 'neelix@sf.com'),
+(12, 'Doctor', '', 'Chief Medical Officer', 'USS Voyager', '7', 'doctor', 'doctor@sf.com'),
+(13, 'Tuvok', '', 'Chief Security Officer', 'USS Voyager', '8', 'tuvok', 'tuvok@sf.com'),
+(14, 'Seven of Nine', '', 'Stellar Cartography', 'USS Voyager', '9', 's_nine', 's_nine@sf.com'),
+(15, 'Harry', 'Kim', 'Operational Officer', 'USS Voyager', '10', 'h_kim', 'h_kim@sf.com'),
+(16, 'Jonathan', 'Archer', 'Commanding Officer', 'USS Enterprise NX-01', '11', 'j_archer', 'j_archer@sf.com'),
+(17, 'T\'Pol', '', 'First Officer', 'USS Enterprise NX-01', '12', 't_pol', 't_pol@sf.com'),
+(18, 'Phlox', '', 'Chief Medical Officer', 'USS Enterprise NX-01', '13', 'phlox', 'phlox@sf.com'),
+(19, 'Malcolm', 'Reed', 'Chief Security Officer', 'USS Enterprise NX-01', '14', 'm_reed', 'm_reed@sf.com'),
+(20, 'Travis', 'Mayweather', 'Conn Officer', 'USS Enterprise NX-01', '15', 't_mayweather', 't_mayweather@sf.com'),
+(21, 'Hoshi', 'Sato', 'Communications Officer', 'USS Enterprise NX-01', '16', 'h_sato', 'h_sato@sf.com'),
+(22, 'Charles', 'Tucker III', 'Chief Engineer', 'USS Enterprise NX-01', '17', 'c_tucker', 'c_tucker@sf.com'),
+(23, 'Benjamin', 'Sisko', 'Commanding Officer', 'Deep Space Nine', '18', 'b_sisko', 'b_sisko@sf.com'),
+(24, 'Odo', '', 'Chief of Security', 'Deep Space Nine', '19', 'odo', 'odo@sf.com'),
+(25, 'Ezri', 'Dax', 'Counselor', 'Deep Space Nine', '20', 'e_dax', 'e_dax@sf.com'),
+(26, 'Jadzia', 'Dax', 'Chief Science Officer', 'Deep Space Nine', '21', 'j_dax', 'j_dax@sf.com'),
+(27, 'Miles', 'O\'Brien', 'Chief Operations Officer', 'Deep Space Nine', '22', 'm_obrian', 'm_obrian@sf.com'),
+(28, 'Quark', '', 'Bar Owner', 'Deep Space Nine', '23', 'quark', 'quark@sf.com'),
+(29, 'Julian', 'Bashir', 'Chief Medical Officer', 'Deep Space Nine', '24', 'j_bashir', 'j_bashir@sf.com'),
+(30, 'Kira', 'Nerys', 'First Officer', 'Deep Space Nine', '25', 'k_nerys', 'k_nerys@sf.com'),
+(31, 'Jake', 'Sisko', '', 'Deep Space Nine', '26', 'j_sisko', 'j_sisko@sf.com'),
+(32, 'Jean-Luc', 'Picard', 'Commanding Officer', 'USS Enterprise-D', '27', 'j_picard', 'j_picard@sf.com'),
+(33, 'William', 'Riker', 'First Officer', 'USS Enterprise-D', '28', 'w_riker', 'w_riker@sf.com'),
+(34, 'Geordi', 'LaForge', 'Chief Engineer', 'USS Enterprise-D', '29', 'g_laforge', 'g_laforge@sf.com'),
+(35, 'Tasha', 'Yar', 'Chief Security Officer', 'USS Enterprise-D', '30', 't_yar', 't_yar@sf.com'),
+(36, 'Worf', '', 'Chief Security Officer', 'USS Enterprise-D', '31', 'worf', 'worf@sf.com'),
+(37, 'Beverly', 'Crusher', 'Chief Medical Officer', 'USS Enterprise-D', '32', 'b_crusher', 'b_crusher@sf.com'),
+(38, 'Deanna', 'Troi', 'Counselor', 'USS Enterprise-D', '33', 'd_troi', 'd_troi@sf.com'),
+(39, 'Data', '', 'Chief Operations Officer', 'USS Enterprise-D', '34', 'data', 'data@sf.com'),
+(40, 'Wesley', 'Crusher', 'Conn Officer', 'USS Enterprise-D', '35', 'w_crusher', 'w_crusher@sf.com'),
+(41, 'James', 'Kirk', 'Commanding Officer', 'USS Enterprise', '36', 'j_kirk', 'j_kirk@sf.com'),
+(42, 'Spock', '', 'First Officer', 'USS Enterprise', '37', 'spock', 'spock@sf.com'),
+(43, 'Leonard', 'McCoy', 'Chief Medical Officer', 'USS Enterprise', '38', 'l_mccoy', 'l_mccoy@sf.com'),
+(44, 'Montgomery', 'Scott', 'Chief Engineer', 'USS Enterprise', '39', 'm_scott', 'm_scott@sf.com'),
+(45, 'Uhura', '', 'Communications Officer', 'USS Enterprise', '40', 'uhara', 'uhara@sf.com'),
+(46, 'Pavel', 'Chekov', 'Navigator', 'USS Enterprise', '41', 'p_checkov', 'p_checkov@sf.com'),
+(47, 'Sulu', '', 'Helmsman', 'USS Enterprise', '42', 'sulu', 'sulu@sf.com'),
+(48, 'Christin', 'Bettis', 'Jester', 'USS Christin', '2', 'c_bettis', 'c_bettis@sf.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `decks`
+--
+
+CREATE TABLE `decks` (
+  `id` int(11) NOT NULL,
+  `deck` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `rooms` int(11) NOT NULL,
+  `room_name` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `decks`
+--
+
+INSERT INTO `decks` (`id`, `deck`, `name`, `rooms`, `room_name`) VALUES
+(1, 1, 'Command', 5, ',Bridge,Ready Room,Conference1,BR,BR2,'),
+(2, 2, 'Engineering', 6, ',Impulse Engineering,Warp Engineering,Conference2,Office1,BR3,BR4,'),
+(3, 3, 'Security', 6, ',Security,Armory,Conference3,Office2,BR5,BR6,'),
+(4, 4, 'Medical', 7, ',Medical,Counseling,Office3,Conference4,BR7,BR8,'),
+(5, 5, 'Research', 11, ',Lab2,Lab3,Lab4,Lab5,Office4,Office5,Office6,Office7,Conference5,BR7,BR8'),
+(6, 6, 'Rec', 8, ',Canteen,Bar,Holodeck1,Holodeck2,Garden,Auditorium,BR9,BR10,'),
+(7, 7, 'Transport', 11, ',Transporter1,Transporter2,Storage1,Storage2,Storage3,ShuttleBay1,ShuttleBay2,Office8,Conference6,BR11,BR12,'),
+(8, 8, 'Living', 12, ',BR15,BR16,Living1,Living2,Living3,Living4,Living5,Living6,Living7,Living8,Living9,Living10,'),
+(10, 9, 'Christin', 1, 'christin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts3m`
+--
+
+CREATE TABLE `posts3m` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `body` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `posts3m`
+--
+
+INSERT INTO `posts3m` (`id`, `title`, `body`) VALUES
+(1, 'Post One', 'This is post one');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` int(11) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `occupant` varchar(50) NOT NULL,
+  `floor` int(11) NOT NULL,
+  `ship` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `type`, `name`, `occupant`, `floor`, `ship`) VALUES
+(1, 'Bridge', 'Bridge(1)', '', 1, 'USS Voyager'),
+(2, 'Ready Room', 'Ready Room(1)', 'k_janeway', 1, 'USS Voyager'),
+(3, 'Conference', 'Conference1(1)', '', 1, 'USS Voyager'),
+(4, 'BR', 'BR(1)', '', 1, 'USS Voyager'),
+(5, 'BR', 'BR2(1)', '', 1, 'USS Voyager'),
+(6, 'Bridge', 'Bridge(2)', '', 1, 'USS Enterprise NX-01'),
+(7, 'Ready Room', 'Ready Room(2)', 'j_archer', 1, 'USS Enterprise NX-01'),
+(8, 'Conference', 'Conference1(2)', '', 1, 'USS Enterprise NX-01'),
+(9, 'BR', 'BR(2)', '', 1, 'USS Enterprise NX-01'),
+(10, 'BR', 'BR2(2)', '', 1, 'USS Enterprise NX-01'),
+(11, 'Bridge', 'Bridge(3)', '', 1, 'Deep Space Nine'),
+(12, 'Ready Room', 'Ready Room(3)', 'b_sisko', 1, 'Deep Space Nine'),
+(13, 'Conference', 'Conference1(3)', '', 1, 'Deep Space Nine'),
+(14, 'BR', 'BR(3)', '', 1, 'Deep Space Nine'),
+(15, 'BR', 'BR2(3)', '', 1, 'Deep Space Nine'),
+(16, 'Bridge', 'Bridge(4)', '', 1, 'USS Enterprise-D'),
+(17, 'Ready Room', 'Ready Room(4)', 'j_picard', 1, 'USS Enterprise-D'),
+(18, 'Conference', 'Conference1(4)', '', 1, 'USS Enterprise-D'),
+(19, 'BR', 'BR(4)', '', 1, 'USS Enterprise-D'),
+(20, 'BR', 'BR2(4)', '', 1, 'USS Enterprise-D'),
+(21, 'Bridge', 'Bridge(5)', '', 1, 'USS Enterprise'),
+(22, 'Ready Room', 'Ready Room(5)', 'j_kirk', 1, 'USS Enterprise'),
+(23, 'Conference', 'Conference1(5)', '', 1, 'USS Enterprise'),
+(24, 'BR', 'BR(5)', '', 1, 'USS Enterprise'),
+(25, 'BR2', 'BR2(5)', '', 1, 'USS Enterprise'),
+(26, 'Impulse Engineering', 'Impulse Engineering(1)', '', 2, 'USS Voyager'),
+(27, 'Warp Engineering', 'Warp Engineering(1)', '', 2, 'USS Voyager'),
+(28, 'Conference', 'Conference2(1)', '', 2, 'USS Voyager'),
+(29, 'Office', 'Office1(1)', 'b_torres', 2, 'USS Voyager'),
+(30, 'BR', 'BR3(1)', '', 2, 'USS Voyager'),
+(31, 'BR', 'BR4(1)', '', 2, 'USS Voyager'),
+(32, 'Impulse Engineering', 'Impulse Engineering(2)', '', 2, 'USS Enterprise NX-01'),
+(33, 'Warp Engineering', 'Warp Engineering(2)', '', 2, 'USS Enterprise NX-01'),
+(34, 'Conference', 'Conference2(2)', '', 2, 'USS Enterprise NX-01'),
+(35, 'Office', 'Office1(2)', 'c_tucker', 2, 'USS Enterprise NX-01'),
+(36, 'BR', 'BR3(2)', '', 2, 'USS Enterprise NX-01'),
+(37, 'BR', 'BR4(2)', '', 2, 'USS Enterprise NX-01'),
+(38, 'Impulse Engineering', 'Impulse Engineering(3)', '', 2, 'Deep Space Nine'),
+(39, 'Warp Engineering', 'Warp Engineering(3)', '', 2, 'Deep Space Nine'),
+(40, 'Conference', 'Conference2(3)', '', 2, 'Deep Space Nine'),
+(41, 'Office', 'Office1(3)', '', 2, 'Deep Space Nine'),
+(42, 'BR', 'BR3(3)', '', 2, 'Deep Space Nine'),
+(43, 'BR', 'BR4(3)', '', 2, 'Deep Space Nine'),
+(44, 'Impulse Engineering', 'Impulse Engineering(4)', '', 2, 'USS Enterprise-D'),
+(45, 'Warp Engineering', 'Warp Engineering(4)', '', 2, 'USS Enterprise-D'),
+(46, 'Conference', 'Conference2(4)', '', 2, 'USS Enterprise-D'),
+(47, 'Office', 'Office1(4)', 'g_laforge', 2, 'USS Enterprise-D'),
+(48, 'BR', 'BR3(4)', '', 2, 'USS Enterprise-D'),
+(49, 'BR', 'BR4(4)', '', 2, 'USS Enterprise-D'),
+(50, 'Impulse Engineering', 'Impulse Engineering(5)', '', 2, 'USS Enterprise'),
+(51, 'Warp Engineering', 'Warp Engineering(5)', '', 2, 'USS Enterprise'),
+(52, 'Conference', 'Conference2(5)', '', 2, 'USS Enterprise'),
+(53, 'Office', 'Office1(5)', 'm_scott', 2, 'USS Enterprise'),
+(54, 'BR', 'BR3(5)', '', 2, 'USS Enterprise'),
+(55, 'BR', 'BR4(5)', '', 2, 'USS Enterprise'),
+(56, 'Security', 'Security(1)', '', 3, 'USS Voyager'),
+(57, 'Armory', 'Armory(1)', '', 3, 'USS Voyager'),
+(58, 'Conference', 'Conference3(1)', '', 3, 'USS Voyager'),
+(59, 'Office', 'Office2(1)', 'tuvok', 3, 'USS Voyager'),
+(60, 'BR', 'BR5(1)', '', 3, 'USS Voyager'),
+(61, 'BR', 'BR6(1)', '', 3, 'USS Voyager'),
+(62, 'BR', 'BR6(2)', '', 3, 'USS Enterprise NX-01'),
+(63, 'Security', 'Security(2)', '', 3, 'USS Enterprise NX-01'),
+(64, 'Armory', 'Armory(2)', '', 3, 'USS Enterprise NX-01'),
+(65, 'Conference', 'Conference3(2)', '', 3, 'USS Enterprise NX-01'),
+(66, 'Office', 'Office2(2)', 'm_reed', 3, 'USS Enterprise NX-01'),
+(67, 'BR', 'BR5(2)', '', 3, 'USS Enterprise NX-01'),
+(68, 'Security', 'Security(3)', '', 3, 'Deep Space Nine'),
+(69, 'Armory', 'Armory(3)', '', 3, 'Deep Space Nine'),
+(70, 'Conference', 'Conference3(3)', '', 3, 'Deep Space Nine'),
+(71, 'Office', 'Office2(3)', 'odo', 3, 'Deep Space Nine'),
+(72, 'BR', 'BR5(3)', '', 3, 'Deep Space Nine'),
+(73, 'BR', 'BR6(3)', '', 3, 'Deep Space Nine'),
+(74, 'Security', 'Security(4)', '', 3, 'USS Enterprise-D'),
+(75, 'Armory', 'Armory(4)', '', 3, 'USS Enterprise-D'),
+(76, 'Conference', 'Conference3(4)', '', 3, 'USS Enterprise-D'),
+(77, 'Office', 'Office2(4)', 'worf', 3, 'USS Enterprise-D'),
+(78, 'BR', 'BR5(4)', '', 3, 'USS Enterprise-D'),
+(79, 'BR', 'BR6(4)', '', 3, 'USS Enterprise-D'),
+(80, 'Security', 'Security(5)', '', 3, 'USS Enterprise'),
+(81, 'Armory', 'Armory(5)', '', 3, 'USS Enterprise'),
+(82, 'Conference', 'Conference3(5)', '', 3, 'USS Enterprise'),
+(83, 'Office', 'Office2(5)', '', 3, 'USS Enterprise'),
+(84, 'BR', 'BR5(5)', '', 3, 'USS Enterprise'),
+(85, 'BR', 'BR6(5)', '', 3, 'USS Enterprise'),
+(86, 'Medical', 'Medical(1)', '', 4, 'USS Voyager'),
+(87, 'Lab', 'Lab1(1)', '', 4, 'USS Voyager'),
+(88, 'Counseling', 'Counseling(1)', '', 4, 'USS Voyager'),
+(89, 'Office', 'Office3(1)', 'doctor', 4, 'USS Voyager'),
+(90, 'Conference', 'Conference4(1)', '', 4, 'USS Voyager'),
+(91, 'BR', 'BR7(1)', '', 4, 'USS Voyager'),
+(92, 'BR', 'BR8(1)', '', 4, 'USS Voyager'),
+(93, 'Medical', 'Medical(2)', '', 4, 'USS Enterprise NX-01'),
+(94, 'Lab', 'Lab1(2)', '', 4, 'USS Enterprise NX-01'),
+(95, 'Counseling', 'Counseling(2)', '', 4, 'USS Enterprise NX-01'),
+(96, 'Office', 'Office3(2)', 'phlox', 4, 'USS Enterprise NX-01'),
+(97, 'Conference', 'Conference4(2)', '', 4, 'USS Enterprise NX-01'),
+(98, 'BR', 'BR7(2)', '', 4, 'USS Enterprise NX-01'),
+(99, 'BR', 'BR8(2)', '', 4, 'USS Enterprise NX-01'),
+(100, 'Medical', 'Medical(3)', '', 4, 'Deep Space Nine'),
+(101, 'Lab', 'Lab1(3)', '', 4, 'Deep Space Nine'),
+(102, 'Counseling', 'Counseling(3)', '', 4, 'Deep Space Nine'),
+(103, 'Office', 'Office3(3)', 'j_bashir', 4, 'Deep Space Nine'),
+(104, 'Conference', 'Conference4(3)', '', 4, 'Deep Space Nine'),
+(105, 'BR', 'BR7(3)', '', 4, 'Deep Space Nine'),
+(106, 'BR', 'BR8(3)', '', 4, 'Deep Space Nine'),
+(107, 'Medical', 'Medical(4)', '', 4, 'USS Enterprise-D'),
+(108, 'Lab', 'Lab1(4)', '', 4, 'USS Enterprise-D'),
+(109, 'Counseling', 'Counseling(4)', 'd_troi', 4, 'USS Enterprise-D'),
+(110, 'Office', 'Office3(4)', 'b_crusher', 4, 'USS Enterprise-D'),
+(111, 'Conference', 'Conference4(4)', '', 4, 'USS Enterprise-D'),
+(112, 'BR', 'BR7(4)', '', 4, 'USS Enterprise-D'),
+(113, 'BR', 'BR8(4)', '', 4, 'USS Enterprise-D'),
+(114, 'Medical', 'Medical(5)', '', 4, 'USS Enterprise'),
+(115, 'Lab', 'Lab1(5)', '', 4, 'USS Enterprise'),
+(116, 'Counseling', 'Counseling(5)', '', 4, 'USS Enterprise'),
+(117, 'Office', 'Office3(5)', '', 4, 'USS Enterprise'),
+(118, 'Conference', 'Conference4(5)', '', 4, 'USS Enterprise'),
+(119, 'BR', 'BR7(5)', '', 4, 'USS Enterprise'),
+(120, 'BR', 'BR8(5)', '', 4, 'USS Enterprise'),
+(121, 'Lab', 'Lab2(1)', '', 5, 'USS Voyager'),
+(122, 'Lab', 'Lab3(1)', '', 5, 'USS Voyager'),
+(123, 'Lab', 'Lab4(1)', '', 5, 'USS Voyager'),
+(124, 'Lab', 'Lab5(1)', '', 5, 'USS Voyager'),
+(125, 'Office', 'Office4(1)', '', 5, 'USS Voyager'),
+(126, 'Office', 'Office5(1)', '', 5, 'USS Voyager'),
+(127, 'Office', 'Office6(1)', '', 5, 'USS Voyager'),
+(128, 'Office', 'Office7(1)', '', 5, 'USS Voyager'),
+(129, 'Conference', 'Conference5(1)', '', 5, 'USS Voyager'),
+(130, 'BR', 'BR9(1)', '', 5, 'USS Voyager'),
+(131, 'BR', 'BR10(1)', '', 5, 'USS Voyager'),
+(132, 'Lab', 'Lab2(2)', '', 5, 'USS Enterprise NX-01'),
+(133, 'Lab', 'Lab3(2)', '', 5, 'USS Enterprise NX-01'),
+(134, 'Lab', 'Lab4(2)', '', 5, 'USS Enterprise NX-01'),
+(135, 'Lab', 'Lab5(2)', '', 5, 'USS Enterprise NX-01'),
+(136, 'Office', 'Office4(2)', '', 5, 'USS Enterprise NX-01'),
+(137, 'Office', 'Office5(2)', '', 5, 'USS Enterprise NX-01'),
+(138, 'Office', 'Office6(2)', '', 5, 'USS Enterprise NX-01'),
+(139, 'Office', 'Office7(2)', '', 5, 'USS Enterprise NX-01'),
+(140, 'Conference', 'Conference5(2)', '', 5, 'USS Enterprise NX-01'),
+(141, 'BR', 'BR9(2)', '', 5, 'USS Enterprise NX-01'),
+(142, 'BR', 'BR10(2)', '', 5, 'USS Enterprise NX-01'),
+(143, 'Conference', 'Conference5(3)', '', 5, 'Deep Space Nine'),
+(144, 'Lab', 'Lab2(3)', '', 5, 'Deep Space Nine'),
+(145, 'Lab', 'Lab3(3)', '', 5, 'Deep Space Nine'),
+(146, 'Lab', 'Lab4(3)', '', 5, 'Deep Space Nine'),
+(147, 'Lab', 'Lab5(3)', '', 5, 'Deep Space Nine'),
+(148, 'Office', 'Office4(3)', '', 5, 'Deep Space Nine'),
+(149, 'Office', 'Office5(3)', '', 5, 'Deep Space Nine'),
+(150, 'Office', 'Office6(3)', '', 5, 'Deep Space Nine'),
+(151, 'Office', 'Office7(3)', '', 5, 'Deep Space Nine'),
+(152, 'BR', 'BR9(3)', '', 5, 'Deep Space Nine'),
+(153, 'BR', 'BR10(3)', '', 5, 'Deep Space Nine'),
+(154, 'Lab', 'Lab2(4)', '', 5, 'USS Enterprise-D'),
+(155, 'Lab', 'Lab3(4)', '', 5, 'USS Enterprise-D'),
+(156, 'Lab', 'Lab4(4)', '', 5, 'USS Enterprise-D'),
+(157, 'Lab', 'Lab5(4)', '', 5, 'USS Enterprise-D'),
+(158, 'Office', 'Office4(4)', '', 5, 'USS Enterprise-D'),
+(159, 'Office', 'Office5(4)', '', 5, 'USS Enterprise-D'),
+(160, 'Office', 'Office6(4)', '', 5, 'USS Enterprise-D'),
+(161, 'Office', 'Office7(4)', '', 5, 'USS Enterprise-D'),
+(162, 'Conference', 'Conference5(4)', '', 5, 'USS Enterprise-D'),
+(163, 'BR', 'BR9(4)', '', 5, 'USS Enterprise-D'),
+(164, 'BR', 'BR10(4)', '', 5, 'USS Enterprise-D'),
+(165, 'Lab', 'Lab2(5)', '', 5, 'USS Enterprise'),
+(166, 'Lab', 'Lab3(5)', '', 5, 'USS Enterprise'),
+(167, 'Lab', 'Lab4(5)', '', 5, 'USS Enterprise'),
+(168, 'Lab', 'Lab5(5)', '', 5, 'USS Enterprise'),
+(169, 'Office', 'Office4(5)', '', 5, 'USS Enterprise'),
+(170, 'Office', 'Office5(5)', '', 5, 'USS Enterprise'),
+(171, 'Office', 'Office6(5)', '', 5, 'USS Enterprise'),
+(172, 'Office', 'Office7(5)', '', 5, 'USS Enterprise'),
+(173, 'Conference', 'Conference5(5)', '', 5, 'USS Enterprise'),
+(174, 'BR', 'BR9(5)', '', 5, 'USS Enterprise'),
+(175, 'BR', 'BR10(5)', '', 5, 'USS Enterprise'),
+(176, 'Canteen', 'Canteen(1)', '', 6, 'USS Voyager'),
+(177, 'Bar', 'Bar(1)', '', 6, 'USS Voyager'),
+(178, 'Holodeck', 'Holodeck1(1)', '', 6, 'USS Voyager'),
+(179, 'Holodeck', 'Holodeck2(1)', '', 6, 'USS Voyager'),
+(180, 'Garden', 'Garden(1)', '', 6, 'USS Voyager'),
+(181, 'Auditorium', 'Auditorium(1)', '', 6, 'USS Voyager'),
+(182, 'BR', 'BR11(1)', '', 6, 'USS Voyager'),
+(183, 'BR', 'BR12(1)', '', 6, 'USS Voyager'),
+(184, 'Canteen', 'Canteen(2)', '', 6, 'USS Enterprise NX-01'),
+(185, 'Bar', 'Bar(2)', '', 6, 'USS Enterprise NX-01'),
+(186, 'Holodeck', 'Holodeck1(2)', '', 6, 'USS Enterprise NX-01'),
+(187, 'Holodeck', 'Holodeck2(2)', '', 6, 'USS Enterprise NX-01'),
+(188, 'Garden', 'Garden(2)', '', 6, 'USS Enterprise NX-01'),
+(189, 'Auditorium', 'Auditorium(2)', '', 6, 'USS Enterprise NX-01'),
+(190, 'BR', 'BR11(2)', '', 6, 'USS Enterprise NX-01'),
+(191, 'BR', 'BR12(2)', '', 6, 'USS Enterprise NX-01'),
+(192, 'Canteen', 'Canteen(3)', '', 6, 'Deep Space Nine'),
+(193, 'Bar', 'Bar(3)', '', 6, 'Deep Space Nine'),
+(194, 'Holodeck', 'Holodeck1(3)', '', 6, 'Deep Space Nine'),
+(195, 'Holodeck', 'Holodeck2(3)', '', 6, 'Deep Space Nine'),
+(196, 'Garden', 'Garden(3)', '', 6, 'Deep Space Nine'),
+(197, 'Auditorium', 'Auditorium(3)', '', 6, 'Deep Space Nine'),
+(198, 'BR', 'BR11(3)', '', 6, 'Deep Space Nine'),
+(199, 'BR', 'BR12(3)', '', 6, 'Deep Space Nine'),
+(200, 'Canteen', 'Canteen(4)', '', 6, 'USS Enterprise-D'),
+(201, 'Bar', 'Bar(4)', '', 6, 'USS Enterprise-D'),
+(202, 'Holodeck', 'Holodeck1(4)', '', 6, 'USS Enterprise-D'),
+(203, 'Holodeck', 'Holodeck2(4)', '', 6, 'USS Enterprise-D'),
+(204, 'Garden', 'Garden(4)', '', 6, 'USS Enterprise-D'),
+(205, 'Auditorium', 'Auditorium(4)', '', 6, 'USS Enterprise-D'),
+(206, 'BR', 'BR11(4)', '', 6, 'USS Enterprise-D'),
+(207, 'BR', 'BR12(4)', '', 6, 'USS Enterprise-D'),
+(208, 'Canteen', 'Canteen(5)', '', 6, 'USS Enterprise'),
+(209, 'Bar', 'Bar(5)', '', 6, 'USS Enterprise'),
+(210, 'Holodeck', 'Holodeck1(5)', '', 6, 'USS Enterprise'),
+(211, 'Holodeck', 'Holodeck2(5)', '', 6, 'USS Enterprise'),
+(212, 'Garden', 'Garden(5)', '', 6, 'USS Enterprise'),
+(213, 'Auditorium', 'Auditorium(5)', '', 6, 'USS Enterprise'),
+(214, 'BR', 'BR11(5)', '', 6, 'USS Enterprise'),
+(215, 'BR', 'BR12(5)', '', 6, 'USS Enterprise'),
+(216, 'Transporter', 'Transporter1(1)', '', 7, 'USS Voyager'),
+(217, 'Transporter', 'Transporter2(1)', '', 7, 'USS Voyager'),
+(218, 'Storage', 'Storage1(1)', '', 7, 'USS Voyager'),
+(219, 'Storage', 'Storage2(1)', '', 7, 'USS Voyager'),
+(220, 'Storage', 'Storage3(1)', '', 7, 'USS Voyager'),
+(221, 'ShuttleBay', 'ShuttleBay1(1)', '', 7, 'USS Voyager'),
+(222, 'ShuttleBay', 'ShuttleBay2(1)', '', 7, 'USS Voyager'),
+(223, 'Office', 'Office8(1)', '', 7, 'USS Voyager'),
+(224, 'Conference', 'Conference6(1)', '', 7, 'USS Voyager'),
+(225, 'BR', 'BR13(1)', '', 7, 'USS Voyager'),
+(226, 'BR', 'BR14(1)', '', 7, 'USS Voyager'),
+(227, 'Transporter', 'Transporter1(2)', '', 7, 'USS Enterprise NX-01'),
+(228, 'Transporter', 'Transporter2(2)', '', 7, 'USS Enterprise NX-01'),
+(229, 'BR', 'BR13(2)', '', 7, 'USS Enterprise NX-01'),
+(230, 'Storage', 'Storage1(2)', '', 7, 'USS Enterprise NX-01'),
+(231, 'Storage', 'Storage2(2)', '', 7, 'USS Enterprise NX-01'),
+(232, 'Storage', 'Storage3(2)', '', 7, 'USS Enterprise NX-01'),
+(233, 'ShuttleBay', 'ShuttleBay1(2)', '', 7, 'USS Enterprise NX-01'),
+(234, 'ShuttleBay', 'ShuttleBay2(2)', '', 7, 'USS Enterprise NX-01'),
+(235, 'Office', 'Office8(2)', '', 7, 'USS Enterprise NX-01'),
+(236, 'Conference', 'Conference6(2)', '', 7, 'USS Enterprise NX-01'),
+(237, 'BR', 'BR14(2)', '', 7, 'USS Enterprise NX-01'),
+(238, 'Transporter', 'Transporter1(3)', '', 7, 'Deep Space Nine'),
+(239, 'Transporter', 'Transporter2(3)', '', 7, 'Deep Space Nine'),
+(240, 'Storage', 'Storage1(3)', '', 7, 'Deep Space Nine'),
+(241, 'Storage', 'Storage2(3)', '', 7, 'Deep Space Nine'),
+(242, 'Storage', 'Storage3(3)', '', 7, 'Deep Space Nine'),
+(243, 'ShuttleBay', 'ShuttleBay1(3)', '', 7, 'Deep Space Nine'),
+(244, 'ShuttleBay', 'ShuttleBay2(3)', '', 7, 'Deep Space Nine'),
+(245, 'Office', 'Office8(3)', '', 7, 'Deep Space Nine'),
+(246, 'Conference', 'Conference6(3)', '', 7, 'Deep Space Nine'),
+(247, 'BR', 'BR13(3)', '', 7, 'Deep Space Nine'),
+(248, 'BR', 'BR14(3)', '', 7, 'Deep Space Nine'),
+(249, 'Transporter', 'Transporter1(4)', '', 7, 'USS Enterprise-D'),
+(250, 'Transporter', 'Transporter2(4)', '', 7, 'USS Enterprise-D'),
+(251, 'Storage', 'Storage1(4)', '', 7, 'USS Enterprise-D'),
+(252, 'Storage', 'Storage2(4)', '', 7, 'USS Enterprise-D'),
+(253, 'Storage', 'Storage3(4)', '', 7, 'USS Enterprise-D'),
+(254, 'ShuttleBay', 'ShuttleBay1(4)', '', 7, 'USS Enterprise-D'),
+(255, 'ShuttleBay', 'ShuttleBay2(4)', '', 7, 'USS Enterprise-D'),
+(256, 'Office', 'Office8(4)', '', 7, 'USS Enterprise-D'),
+(257, 'Conference', 'Conference6(4)', '', 7, 'USS Enterprise-D'),
+(258, 'BR', 'BR13(4)', '', 7, 'USS Enterprise-D'),
+(259, 'BR', 'BR14(4)', '', 7, 'USS Enterprise-D'),
+(260, 'Transporter', 'Transporter1(5)', '', 7, 'USS Enterprise'),
+(261, 'Transporter', 'Transporter2(5)', '', 7, 'USS Enterprise'),
+(262, 'Storage', 'Storage1(5)', '', 7, 'USS Enterprise'),
+(263, 'Storage', 'Storage2(5)', '', 7, 'USS Enterprise'),
+(264, 'Storage', 'Storage3(5)', '', 7, 'USS Enterprise'),
+(265, 'ShuttleBay', 'ShuttleBay1(5)', '', 7, 'USS Enterprise'),
+(266, 'ShuttleBay', 'ShuttleBay2(5)', '', 7, 'USS Enterprise'),
+(267, 'Office', 'Office8(5)', '', 7, 'USS Enterprise'),
+(268, 'Conference', 'Conference6(5)', '', 7, 'USS Enterprise'),
+(269, 'BR', 'BR13(5)', '', 7, 'USS Enterprise'),
+(270, 'BR', 'BR14(5)', '', 7, 'USS Enterprise'),
+(271, 'BR', 'BR15(1)', '', 8, 'USS Voyager'),
+(272, 'BR', 'BR16(1)', '', 8, 'USS Voyager'),
+(273, 'Living', 'Living1(1)', 'k_janeway ', 8, 'USS Voyager'),
+(274, 'Living', 'Living2(1)', 'chakotay', 8, 'USS Voyager'),
+(275, 'Living', 'Living3(1)', 'b_torres', 8, 'USS Voyager'),
+(276, 'Living', 'Living4(1)', 't_paris', 8, 'USS Voyager'),
+(277, 'Living', 'Living5(1)', 'kes', 8, 'USS Voyager'),
+(278, 'Living', 'Living6(1)', 'neelix', 8, 'USS Voyager'),
+(279, 'Living', 'Living7(1)', 'doctor', 8, 'USS Voyager'),
+(280, 'Living', 'Living8(1)', 'tuvok', 8, 'USS Voyager'),
+(281, 'Living', 'Living9(1)', 's_nine', 8, 'USS Voyager'),
+(282, 'Living', 'Living10(1)', 'h_kim', 8, 'USS Voyager'),
+(283, 'BR', 'BR15(2)', '', 8, 'USS Enterprise NX-01'),
+(284, 'BR', 'BR16(2)', '', 8, 'USS Enterprise NX-01'),
+(285, 'Living', 'Living1(2)', 'j_archer ', 8, 'USS Enterprise NX-01'),
+(286, 'Living', 'Living2(2)', 't_pol ', 8, 'USS Enterprise NX-01'),
+(287, 'Living', 'Living3(2)', 'phlox', 8, 'USS Enterprise NX-01'),
+(288, 'Living', 'Living4(2)', 'm_reed', 8, 'USS Enterprise NX-01'),
+(289, 'Living', 'Living5(2)', 't_mayweather', 8, 'USS Enterprise NX-01'),
+(290, 'Living', 'Living6(2)', 'h_sato', 8, 'USS Enterprise NX-01'),
+(291, 'Living', 'Living7(2)', 'c_tucker', 8, 'USS Enterprise NX-01'),
+(292, 'Living', 'Living8(2)', '', 8, 'USS Enterprise NX-01'),
+(293, 'Living', 'Living9(2)', '', 8, 'USS Enterprise NX-01'),
+(294, 'Living', 'Living10(2)', '', 8, 'USS Enterprise NX-01'),
+(295, 'BR', 'BR15(3)', '', 8, 'Deep Space Nine'),
+(296, 'BR', 'BR16(3)', '', 8, 'Deep Space Nine'),
+(297, 'Living', 'Living1(3)', 'b_sisko', 8, 'Deep Space Nine'),
+(298, 'Living', 'Living2(3)', 'odo', 8, 'Deep Space Nine'),
+(299, 'Living', 'Living3(3)', 'e_dax', 8, 'Deep Space Nine'),
+(300, 'Living', 'Living4(3)', 'j_dax', 8, 'Deep Space Nine'),
+(301, 'Living', 'Living5(3)', 'm_obrian', 8, 'Deep Space Nine'),
+(302, 'Living', 'Living6(3)', 'quark', 8, 'Deep Space Nine'),
+(303, 'Living', 'Living7(3)', 'j_bashir', 8, 'Deep Space Nine'),
+(304, 'Living', 'Living8(3)', 'k_nerys', 8, 'Deep Space Nine'),
+(305, 'Living', 'Living9(3)', 'j_sisko', 8, 'Deep Space Nine'),
+(306, 'Living', 'Living10(3)', '', 8, 'Deep Space Nine'),
+(307, 'BR', 'BR15(4)', '', 8, 'USS Enterprise-D'),
+(308, 'BR', 'BR16(4)', '', 8, 'USS Enterprise-D'),
+(309, 'Living', 'Living1(4)', 'j_picard', 8, 'USS Enterprise-D'),
+(310, 'Living', 'Living2(4)', 'w_riker', 8, 'USS Enterprise-D'),
+(311, 'Living', 'Living3(4)', 'g_laforge', 8, 'USS Enterprise-D'),
+(312, 'Living', 'Living4(4)', 't_yar', 8, 'USS Enterprise-D'),
+(313, 'Living', 'Living5(4)', 'worf', 8, 'USS Enterprise-D'),
+(314, 'Living', 'Living6(4)', 'b_crusher', 8, 'USS Enterprise-D'),
+(315, 'Living', 'Living7(4)', 'd_troi', 8, 'USS Enterprise-D'),
+(316, 'Living', 'Living8(4)', 'data', 8, 'USS Enterprise-D'),
+(317, 'Living', 'Living9(4)', 'w_crusher', 8, 'USS Enterprise-D'),
+(318, 'Living', 'Living10(4)', '', 8, 'USS Enterprise-D'),
+(319, 'BR', 'BR15(5)', '', 8, 'USS Enterprise'),
+(320, 'BR', 'BR16(5)', '', 8, 'USS Enterprise'),
+(321, 'Living', 'Living1(5)', 'j_kirk', 8, 'USS Enterprise'),
+(322, 'Living', 'Living2(5)', 'spock', 8, 'USS Enterprise'),
+(323, 'Living', 'Living3(5)', 'l_mccoy', 8, 'USS Enterprise'),
+(324, 'Living', 'Living4(5)', 'm_scott', 8, 'USS Enterprise'),
+(325, 'Living', 'Living5(5)', 'uhara', 8, 'USS Enterprise'),
+(326, 'Living', 'Living6(5)', 'p_checkov', 8, 'USS Enterprise'),
+(327, 'Living', 'Living7(5)', 'sulu', 8, 'USS Enterprise'),
+(328, 'Living', 'Living8(5)', '', 8, 'USS Enterprise'),
+(329, 'Living', 'Living9(5)', '', 8, 'USS Enterprise'),
+(330, 'Living', 'Living10(5)', '', 8, 'USS Enterprise');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ship`
+--
+
+CREATE TABLE `ship` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `decks` int(11) NOT NULL,
+  `rooms` int(11) NOT NULL,
+  `br` int(11) NOT NULL,
+  `office` int(11) NOT NULL,
+  `conference` int(11) NOT NULL,
+  `lab` int(11) NOT NULL,
+  `specialty` int(11) NOT NULL,
+  `storage` int(11) NOT NULL,
+  `transporter` int(11) NOT NULL,
+  `shuttle` int(11) NOT NULL,
+  `living` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ship`
+--
+
+INSERT INTO `ship` (`id`, `name`, `decks`, `rooms`, `br`, `office`, `conference`, `lab`, `specialty`, `storage`, `transporter`, `shuttle`, `living`) VALUES
+(1, 'USS Voyager', 8, 66, 16, 8, 6, 5, 14, 3, 2, 2, 10),
+(2, 'USS Enterprise NX-01', 8, 66, 16, 8, 6, 5, 14, 3, 2, 2, 10),
+(3, 'Deep Space Nine', 8, 66, 16, 8, 6, 5, 14, 3, 2, 2, 10),
+(4, 'USS Enterprise-D', 8, 66, 16, 8, 6, 5, 14, 3, 2, 2, 10),
+(10, 'USS Christin', 1, 8, 1, 1, 1, 1, 2, 1, 1, 1, 0),
+(11, 'USS Jesse', 1, 8, 1, 1, 1, 1, 1, 1, 1, 1, 0),
+(12, 'USS Enterprise', 8, 66, 16, 8, 6, 5, 14, 3, 2, 2, 10);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `crew`
+--
+ALTER TABLE `crew`
+  ADD PRIMARY KEY (`id`,`room`);
+
+--
+-- Indexes for table `decks`
+--
+ALTER TABLE `decks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `posts3m`
+--
+ALTER TABLE `posts3m`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ship`
+--
+ALTER TABLE `ship`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `crew`
+--
+ALTER TABLE `crew`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT for table `decks`
+--
+ALTER TABLE `decks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `posts3m`
+--
+ALTER TABLE `posts3m`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=331;
+
+--
+-- AUTO_INCREMENT for table `ship`
+--
+ALTER TABLE `ship`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
